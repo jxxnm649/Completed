@@ -11,7 +11,11 @@ body{
 .brand-header{
     display: flex;
     justify-content: center;
-    padding-top: 12px;
+    padding: 18px 16px;
+    margin: 12px 0 4px;
+    border-radius: var(--radius);
+    background: linear-gradient(120deg, var(--ink) 0%, var(--ink-soft) 100%);
+    box-shadow: var(--shadow);
 }
 
 .brand-logo-img{
@@ -19,24 +23,45 @@ body{
     max-width: 150px;
     height: auto;
     object-fit: contain;
+    border-radius: 10px;
+    background: #fff;
+    padding: 6px;
 }
 
-/* ---------- Social links (moved below search bar) ---------- */
+/* ---------- Social links (compact circular row, below search bar) ---------- */
 .container > .social-links{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    margin: 4px 0 12px;
+    gap: 8px;
+    margin: 4px 0 14px;
 }
 
 .container > .social-links .social-link{
+    flex-direction: column;
     justify-content: center;
-    padding: 14px 6px;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 4px;
+    border-radius: 14px;
+    background: var(--paper-dim, #f2ece0);
 }
 
 .container > .social-links .social-link i{
-    font-size: 24px;
-    width: auto;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fff;
+    font-size: 18px;
+    box-shadow: var(--shadow-sm);
+}
+
+.container > .social-links .social-link span{
+    font-size: 10.5px;
+    font-weight: 600;
+    color: var(--ink-soft);
 }
 
 .container{
@@ -152,6 +177,9 @@ body{
 
 .category-chip{
     flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
     padding: 8px 16px;
     border-radius: 999px;
     background: var(--card);
@@ -162,6 +190,10 @@ body{
     cursor: pointer;
     white-space: nowrap;
     transition: .15s;
+}
+
+.category-chip i{
+    font-size: 12px;
 }
 
 .category-chip.active{
@@ -292,6 +324,16 @@ body{
 .products, .products-grid{
     grid-template-columns: 1fr !important;
     gap: 20px !important;
+}
+
+@media (min-width: 480px){
+    .products, .products-grid{
+        grid-template-columns: 1fr 1fr !important;
+        gap: 16px !important;
+    }
+    .bf-carousel{ aspect-ratio: 1 / 1; }
+    .bf-title{ font-size: 15px; }
+    .bf-current-price{ font-size: 18px; }
 }
 
 .bf-card{
